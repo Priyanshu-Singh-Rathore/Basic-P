@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="weather-app">
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Weather<span>.</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#">HOME</a>
+                <a href="#weather">WEATHER</a>
+                <a href="#about">ABOUT</a>
+            </div>
+
+        </nav>
+
+
+        <section class="hero">
+
+            <div class="hero-small">
+                LIVE WEATHER
+            </div>
+
+            <h1>
+                Know the weather<br>
+                <span>before you go.</span>
+            </h1>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="city-input"
+                    placeholder="Enter city name..."
+                >
+
+                <button id="search-button">
+                    →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="weather-result" id="weather">
+
+            <div class="weather-main">
+
+                <div>
+                    <div class="temperature-label">
+                        CURRENT LOCATION
+                    </div>
+
+                    <h2 id="city-name">
+                        Search for a city
+                    </h2>
+                </div>
+
+                <div>
+                    <div id="temperature">
+                        --°C
+                    </div>
+
+                    <div class="temperature-label">
+                        CURRENT TEMPERATURE
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="weather-time">
+
+                <div class="time-label">
+                    LOCAL TIME
+                </div>
+
+                <div id="city-time">
+                    --:--
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="info-section" id="about">
+
+            <h2>
+                Simple data.
+                <span>Beautifully presented.</span>
+            </h2>
+
+            <p>
+                Get real-time weather information for any city.
+                Search for a location and instantly see its
+                current temperature and local time.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        01 / LOCATION
+                    </div>
+
+                    <h3>Global Search</h3>
+
+                    <p>
+                        Search weather information for cities
+                        around the world.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        02 / DATA
+                    </div>
+
+                    <h3>Live Temperature</h3>
+
+                    <p>
+                        Get the current temperature from the API.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        03 / TIME
+                    </div>
+
+                    <h3>Local Time</h3>
+
+                    <p>
+                        See the local time of the location.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <span>WEATHER.</span>
+            <span>Built with HTML · CSS · JavaScript</span>
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

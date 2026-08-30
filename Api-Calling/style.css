@@ -1,0 +1,495 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #c5df91;
+    color: #eef5df;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.weather-app {
+    width: 94%;
+    max-width: 1400px;
+    min-height: 92vh;
+
+    margin: 4vh auto;
+
+    background: #0b1c10;
+    border-radius: 18px;
+
+    padding: 28px 40px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Decorative glow */
+
+.weather-app::before {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: #91b85c;
+    opacity: 0.08;
+
+    border-radius: 50%;
+
+    right: -180px;
+    top: -180px;
+
+    filter: blur(80px);
+}
+
+.weather-app::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: #b8d878;
+    opacity: 0.05;
+
+    border-radius: 50%;
+
+    left: -150px;
+    bottom: -150px;
+
+    filter: blur(70px);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 5;
+
+    padding-bottom: 35px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #b9d77b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #9ba99a;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d6ef9e;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: #a9c477;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 7vw, 100px);
+
+    line-height: 0.88;
+
+    letter-spacing: -6px;
+
+    max-width: 800px;
+
+    margin-bottom: 35px;
+}
+
+.hero h1 span {
+    color: #b9d77b;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    width: min(600px, 100%);
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(220, 240, 190, 0.15);
+
+    border-radius: 50px;
+
+    padding: 7px;
+
+    backdrop-filter: blur(15px);
+}
+
+#city-input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    padding: 15px 20px;
+
+    font-size: 16px;
+}
+
+#city-input::placeholder {
+    color: #819080;
+}
+
+#search-button {
+    border: none;
+
+    background: #c2df88;
+    color: #0b1c10;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#search-button:hover {
+    transform: scale(1.08);
+    background: #d9f39c;
+}
+
+
+/* =========================
+   WEATHER RESULT
+========================= */
+
+.weather-result {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 20px;
+
+    margin-top: 20px;
+
+    position: relative;
+    z-index: 3;
+}
+
+
+/* Main temperature card */
+
+.weather-main {
+    min-height: 300px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: #13281a;
+
+    border: 1px solid rgba(220, 240, 190, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#city-name {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+#temperature {
+    font-size: clamp(70px, 10vw, 130px);
+
+    font-weight: 500;
+
+    letter-spacing: -8px;
+
+    color: #d9efaa;
+}
+
+.temperature-label {
+    color: #8c9e8b;
+    font-size: 13px;
+}
+
+
+/* Time card */
+
+.weather-time {
+    min-height: 300px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: #bcd982;
+
+    color: #0b1c10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time-label {
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    opacity: 0.6;
+}
+
+#city-time {
+    font-size: 30px;
+
+    font-weight: 600;
+
+    line-height: 1.1;
+}
+
+
+/* =========================
+   INFO SECTION
+========================= */
+
+.info-section {
+    margin-top: 100px;
+
+    padding: 70px 0;
+
+    border-top: 1px solid rgba(220, 240, 190, 0.12);
+
+    position: relative;
+    z-index: 2;
+}
+
+.info-section h2 {
+    font-size: clamp(40px, 6vw, 80px);
+
+    letter-spacing: -4px;
+
+    line-height: 0.95;
+
+    max-width: 800px;
+
+    margin-bottom: 25px;
+}
+
+.info-section h2 span {
+    color: #aeca6f;
+}
+
+.info-section p {
+    max-width: 600px;
+
+    color: #8d9b8e;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.feature-card {
+    min-height: 220px;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: #13281a;
+
+    border: 1px solid rgba(220, 240, 190, 0.08);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(190, 220, 130, 0.3);
+}
+
+.feature-number {
+    color: #a9c477;
+
+    font-size: 12px;
+
+    margin-bottom: 80px;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 13px;
+
+    color: #829184;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(220, 240, 190, 0.12);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #718073;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .weather-app {
+        width: 96%;
+
+        padding: 22px;
+
+        margin: 2vh auto;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .weather-result {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-main,
+    .weather-time {
+        min-height: 250px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+}
